@@ -1,0 +1,623 @@
+{
+  "gameVersion": "0.7.0",
+  "type": "cube-chaos-parts",
+  "formatVersion": 2,
+  "parts": [
+    {
+      "id": "part-mwlpiwsn-2",
+      "name": "Прямая 3 на 3",
+      "enabled": true,
+      "grid": [
+        "ааааа",
+        "ббббб",
+        "ббббб",
+        "ббббб",
+        "ааааа"
+      ],
+      "entry": {
+        "x": 0,
+        "y": 1,
+        "side": "W",
+        "width": 3
+      },
+      "exit": {
+        "x": 4,
+        "y": 1,
+        "side": "E",
+        "width": 3
+      },
+      "wallStart": {
+        "x": 0,
+        "y": 2,
+        "direction": "E"
+      }
+    },
+    {
+      "id": "part-mwm0ahy4-1",
+      "name": "Поворот 3х3",
+      "enabled": true,
+      "grid": [
+        "аааааа",
+        "ббббба",
+        "ббббба",
+        "ббббба",
+        "ааббба",
+        "ааббба"
+      ],
+      "entry": {
+        "x": 0,
+        "y": 1,
+        "side": "W",
+        "width": 3
+      },
+      "exit": {
+        "x": 2,
+        "y": 5,
+        "side": "S",
+        "width": 3
+      },
+      "wallStart": {
+        "x": 0,
+        "y": 2,
+        "direction": "E"
+      },
+      "objects": [
+        {
+          "id": "object-mwm0fy99-b",
+          "type": "wall-start",
+          "x": 2,
+          "y": 1,
+          "w": 1,
+          "h": 1,
+          "direction": "S"
+        }
+      ]
+    },
+    {
+      "id": "part-mwm0h0xw-2",
+      "name": "Разделение",
+      "enabled": true,
+      "grid": [
+        "ааабббббааа",
+        "аабббббббаа",
+        "аббббббббба",
+        "абббаааббба",
+        "абббаааббба",
+        "абббаааббба",
+        "абббаааббба",
+        "абббаааббба",
+        "аббббббббба",
+        "аабббббббаа",
+        "ааабббббааа"
+      ],
+      "entry": {
+        "x": 3,
+        "y": 0,
+        "side": "N",
+        "width": 5
+      },
+      "exit": {
+        "x": 3,
+        "y": 10,
+        "side": "S",
+        "width": 5
+      },
+      "wallStart": {
+        "x": 7,
+        "y": 0,
+        "direction": "S"
+      },
+      "objects": []
+    },
+    {
+      "id": "part-mwm0mdpd-3",
+      "name": "4 стены",
+      "enabled": true,
+      "grid": [
+        "ааааааааааа",
+        "ббббббббббб",
+        "ббббббббббб",
+        "ббббббббббб",
+        "ббббббббббб",
+        "ббббббббббб",
+        "ааааааааааа"
+      ],
+      "entry": {
+        "x": 0,
+        "y": 1,
+        "side": "W",
+        "width": 5
+      },
+      "exit": {
+        "x": 10,
+        "y": 1,
+        "side": "E",
+        "width": 5
+      },
+      "wallStart": {
+        "x": 0,
+        "y": 3,
+        "direction": "E"
+      },
+      "objects": [
+        {
+          "id": "object-mwm0twh6-13",
+          "type": "breakable-wall",
+          "x": 2,
+          "y": 1,
+          "w": 1,
+          "h": 5,
+          "direction": "S",
+          "hits": 5
+        },
+        {
+          "id": "object-mwm0uqtt-15",
+          "type": "breakable-wall",
+          "x": 4,
+          "y": 1,
+          "w": 1,
+          "h": 5,
+          "direction": "S",
+          "hits": 10
+        },
+        {
+          "id": "object-mwm0uvqf-16",
+          "type": "breakable-wall",
+          "x": 6,
+          "y": 1,
+          "w": 1,
+          "h": 5,
+          "direction": "S",
+          "hits": 15
+        },
+        {
+          "id": "object-mwm0v20i-17",
+          "type": "breakable-wall",
+          "x": 8,
+          "y": 1,
+          "w": 1,
+          "h": 5,
+          "direction": "S",
+          "hits": 20
+        }
+      ]
+    },
+    {
+      "id": "cc-community-v1-turn-three",
+      "name": "Поворот с выносом 3",
+      "enabled": true,
+      "grid": [
+        "аааааааа",
+        "ббббббба",
+        "ббббббба",
+        "ббббббба",
+        "ааааббба",
+        "ааааббба",
+        "ааааббба",
+        "ааааббба"
+      ],
+      "entry": {
+        "x": 0,
+        "y": 1,
+        "side": "W",
+        "width": 3
+      },
+      "exit": {
+        "x": 4,
+        "y": 7,
+        "side": "S",
+        "width": 3
+      },
+      "wallStart": {
+        "x": 0,
+        "y": 2,
+        "direction": "E"
+      },
+      "objects": [
+        {
+          "id": "turn-three-next",
+          "type": "wall-start",
+          "x": 4,
+          "y": 1,
+          "w": 1,
+          "h": 1,
+          "direction": "S"
+        }
+      ]
+    },
+    {
+      "id": "cc-community-v1-offset-three",
+      "name": "Смещённый проход 3",
+      "enabled": true,
+      "grid": [
+        "ааааааааа",
+        "ббббббааа",
+        "ббббббааа",
+        "ббббббббб",
+        "ааабббббб",
+        "ааабббббб",
+        "ааааааааа"
+      ],
+      "entry": {
+        "x": 0,
+        "y": 1,
+        "side": "W",
+        "width": 3
+      },
+      "exit": {
+        "x": 8,
+        "y": 3,
+        "side": "E",
+        "width": 3
+      },
+      "wallStart": {
+        "x": 0,
+        "y": 2,
+        "direction": "E"
+      },
+      "objects": [
+        {
+          "id": "offset-three-next",
+          "type": "wall-start",
+          "x": 3,
+          "y": 1,
+          "w": 1,
+          "h": 1,
+          "direction": "S"
+        }
+      ]
+    },
+    {
+      "id": "cc-community-v1-bypass-five",
+      "name": "Обход длинного острова 5",
+      "enabled": true,
+      "grid": [
+        "аааабббббаааа",
+        "ааабббббббааа",
+        "аббббббббббба",
+        "аббббббббббба",
+        "абббаааааббба",
+        "абббаааааббба",
+        "абббаааааббба",
+        "аббббббббббба",
+        "аббббббббббба",
+        "ааабббббббааа",
+        "аааабббббаааа"
+      ],
+      "entry": {
+        "x": 4,
+        "y": 0,
+        "side": "N",
+        "width": 5
+      },
+      "exit": {
+        "x": 4,
+        "y": 10,
+        "side": "S",
+        "width": 5
+      },
+      "wallStart": {
+        "x": 6,
+        "y": 0,
+        "direction": "S"
+      },
+      "objects": [
+        {
+          "id": "bypass-five-left",
+          "type": "wall-start",
+          "x": 1,
+          "y": 2,
+          "w": 1,
+          "h": 1,
+          "direction": "S"
+        },
+        {
+          "id": "bypass-five-right",
+          "type": "wall-start",
+          "x": 9,
+          "y": 2,
+          "w": 1,
+          "h": 1,
+          "direction": "S"
+        }
+      ]
+    },
+    {
+      "id": "cc-community-v1-zigzag-three",
+      "name": "Двойной зигзаг 3",
+      "enabled": true,
+      "grid": [
+        "ааааааааааа",
+        "бббббаааааа",
+        "бббббаааааа",
+        "бббббббббаа",
+        "аабббббббаа",
+        "ааббббббббб",
+        "ааааааббббб",
+        "ааааааббббб",
+        "ааааааааааа"
+      ],
+      "entry": {
+        "x": 0,
+        "y": 1,
+        "side": "W",
+        "width": 3
+      },
+      "exit": {
+        "x": 10,
+        "y": 5,
+        "side": "E",
+        "width": 3
+      },
+      "wallStart": {
+        "x": 0,
+        "y": 2,
+        "direction": "E"
+      },
+      "objects": [
+        {
+          "id": "zigzag-three-first",
+          "type": "wall-start",
+          "x": 2,
+          "y": 1,
+          "w": 1,
+          "h": 1,
+          "direction": "S"
+        },
+        {
+          "id": "zigzag-three-second",
+          "type": "wall-start",
+          "x": 6,
+          "y": 3,
+          "w": 1,
+          "h": 1,
+          "direction": "S"
+        }
+      ]
+    },
+    {
+      "id": "cc-community-v1-three-gates",
+      "name": "Три заслона",
+      "enabled": true,
+      "grid": [
+        "ааааааааааа",
+        "ббббббббббб",
+        "ббббббббббб",
+        "ббббббббббб",
+        "ббббббббббб",
+        "ббббббббббб",
+        "ааааааааааа"
+      ],
+      "entry": {
+        "x": 0,
+        "y": 1,
+        "side": "W",
+        "width": 5
+      },
+      "exit": {
+        "x": 10,
+        "y": 1,
+        "side": "E",
+        "width": 5
+      },
+      "wallStart": {
+        "x": 0,
+        "y": 3,
+        "direction": "E"
+      },
+      "objects": [
+        {
+          "id": "cc-community-v1-gate-two",
+          "type": "breakable-wall",
+          "x": 2,
+          "y": 1,
+          "w": 1,
+          "h": 5,
+          "direction": "S",
+          "hits": 2
+        },
+        {
+          "id": "cc-community-v1-gate-three",
+          "type": "breakable-wall",
+          "x": 5,
+          "y": 1,
+          "w": 1,
+          "h": 5,
+          "direction": "S",
+          "hits": 3
+        },
+        {
+          "id": "cc-community-v1-gate-four",
+          "type": "breakable-wall",
+          "x": 8,
+          "y": 1,
+          "w": 1,
+          "h": 5,
+          "direction": "S",
+          "hits": 4
+        }
+      ]
+    },
+    {
+      "id": "cc-community-v1-alternating-lasers",
+      "name": "Два лазера",
+      "enabled": true,
+      "grid": [
+        "ааааааааа",
+        "ббббббббб",
+        "ббббббббб",
+        "ббббббббб",
+        "ббббббббб",
+        "ббббббббб",
+        "ааааааааа"
+      ],
+      "entry": {
+        "x": 0,
+        "y": 2,
+        "side": "W",
+        "width": 3
+      },
+      "exit": {
+        "x": 8,
+        "y": 2,
+        "side": "E",
+        "width": 3
+      },
+      "wallStart": {
+        "x": 0,
+        "y": 3,
+        "direction": "E"
+      },
+      "objects": [
+        {
+          "id": "cc-community-v1-laser-first",
+          "type": "laser",
+          "x": 3,
+          "y": 1,
+          "w": 1,
+          "h": 1,
+          "direction": "S",
+          "end": {
+            "x": 3,
+            "y": 5
+          },
+          "period": 4,
+          "on": 1.2,
+          "phase": 0
+        },
+        {
+          "id": "cc-community-v1-laser-second",
+          "type": "laser",
+          "x": 6,
+          "y": 1,
+          "w": 1,
+          "h": 1,
+          "direction": "S",
+          "end": {
+            "x": 6,
+            "y": 5
+          },
+          "period": 4,
+          "on": 1.2,
+          "phase": 2
+        }
+      ]
+    },
+    {
+      "id": "cc-community-v1-conveyor-bend",
+      "name": "Поворот на лентах",
+      "enabled": true,
+      "grid": [
+        "ааааааа",
+        "бббббба",
+        "бббббба",
+        "бббббба",
+        "аааббба",
+        "аааббба",
+        "аааббба",
+        "аааббба"
+      ],
+      "entry": {
+        "x": 0,
+        "y": 1,
+        "side": "W",
+        "width": 3
+      },
+      "exit": {
+        "x": 3,
+        "y": 7,
+        "side": "S",
+        "width": 3
+      },
+      "wallStart": {
+        "x": 0,
+        "y": 2,
+        "direction": "E"
+      },
+      "objects": [
+        {
+          "id": "cc-community-v1-belt-right",
+          "type": "conveyor",
+          "x": 1,
+          "y": 1,
+          "w": 3,
+          "h": 3,
+          "direction": "E"
+        },
+        {
+          "id": "cc-community-v1-belt-down",
+          "type": "conveyor",
+          "x": 3,
+          "y": 4,
+          "w": 3,
+          "h": 3,
+          "direction": "S"
+        },
+        {
+          "id": "cc-community-v1-bend-wall-start",
+          "type": "wall-start",
+          "x": 4,
+          "y": 2,
+          "w": 1,
+          "h": 1,
+          "direction": "S"
+        }
+      ]
+    },
+    {
+      "id": "cc-community-v1-bumper-slalom",
+      "name": "Змейка с отбойниками",
+      "enabled": true,
+      "grid": [
+        "ааааааааааааа",
+        "ббббабббббббб",
+        "ббббабббббббб",
+        "ббббабббббббб",
+        "ббббабббабббб",
+        "ббббббббабббб",
+        "ббббббббабббб",
+        "ббббббббабббб",
+        "ааааааааааааа"
+      ],
+      "entry": {
+        "x": 0,
+        "y": 1,
+        "side": "W",
+        "width": 3
+      },
+      "exit": {
+        "x": 12,
+        "y": 5,
+        "side": "E",
+        "width": 3
+      },
+      "wallStart": {
+        "x": 0,
+        "y": 2,
+        "direction": "E"
+      },
+      "objects": [
+        {
+          "id": "cc-community-v1-slalom-bumper-left",
+          "type": "bumper",
+          "x": 2,
+          "y": 5,
+          "w": 1,
+          "h": 1,
+          "direction": "E",
+          "multiplier": 1.5
+        },
+        {
+          "id": "cc-community-v1-slalom-bumper-right",
+          "type": "bumper",
+          "x": 10,
+          "y": 2,
+          "w": 1,
+          "h": 1,
+          "direction": "E",
+          "multiplier": 1.5
+        }
+      ]
+    }
+  ]
+}

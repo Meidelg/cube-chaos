@@ -1,0 +1,10 @@
+export class AudioManager {
+  constructor(settings){this.settings=settings;this.voices=0;this.last={};this.hidden=false;}
+  async unlock(){if(!this.context){const Audio=window.AudioContext||window.webkitAudioContext;if(!Audio)return;this.context=new Audio();this.master=this.context.createGain();this.master.connect(this.context.destination);this.musicTimer=setInterval(()=>this.music(),620);this.note=0;}if(this.context.state==='suspended')await this.context.resume();}
+  tone(frequency,duration,volume,type='sine',music=false){if(!this.context||this.context.state!=='running'||this.hidden||this.voices>=8)return;const settings=this.settings,level=settings.master*(music?settings.music:settings.effects)*volume;if(!level)return;
+    const oscillator=this.context.createOscillator(),gain=this.context.createGain(),t=this.context.currentTime;oscillator.type=type;oscillator.frequency.setValueAtTime(frequency,t);gain.gain.setValueAtTime(.001,t);gain.gain.exponentialRampToValueAtTime(Math.max(.001,level),t+.015);gain.gain.exponentialRampToValueAtTime(.001,t+duration);oscillator.connect(gain);gain.connect(this.master);oscillator.start(t);oscillator.stop(t+duration+.01);this.voices++;oscillator.onended=()=>{this.voices--;oscillator.disconnect();gain.disconnect();};
+  }
+  play(name){const now=performance.now();if(now-(this.last[name]||0)<(name==='collision'?95:70))return;this.last[name]=now;const sounds={collision:[170,.05,.06,'sine'],bounce:[440,.13,.14,'triangle'],portal:[660,.3,.12,'sine'],death:[110,.22,.16,'sawtooth'],warning:[330,.25,.15,'triangle'],win:[784,.55,.18,'sine'],end:[260,.4,.12,'sine'],coin:[1047,.2,.14,'triangle'],'barrier-hit':[220,.08,.09,'triangle'],'barrier-break':[310,.17,.12,'triangle']};this.tone(...(sounds[name]||sounds.bounce));}
+  music(){if(!this.context)return;const notes=[130.81,164.81,196,164.81,146.83,174.61,220,174.61];this.tone(notes[this.note++%notes.length],1.1,.055,'sine',true);}
+  background(hidden){this.hidden=hidden;if(hidden)this.context?.suspend();}
+}

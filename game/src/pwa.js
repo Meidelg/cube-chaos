@@ -1,0 +1,9 @@
+export class PWAManager {
+  constructor(onStatus,onUpdate){this.onStatus=onStatus;this.onUpdate=onUpdate;}
+  async init(){if(!('serviceWorker'in navigator)){this.onStatus('Офлайн-режим недоступен','error');return;}if(import.meta.env.DEV){this.onStatus('Режим разработки','dev');return;}
+    navigator.serviceWorker.addEventListener('message',e=>{if(e.data.type==='CACHE_PROGRESS')this.onStatus(`Загрузка офлайн · ${e.data.done}/${e.data.total}`,'loading');if(e.data.type==='CACHE_ERROR')this.onStatus('Ошибка загрузки · повторить','error');});
+    try{this.registration=await navigator.serviceWorker.register('./sw.js');if(this.registration.waiting)this.onUpdate();this.registration.addEventListener('updatefound',()=>{const worker=this.registration.installing;worker?.addEventListener('statechange',()=>{if(worker.state==='installed'){if(navigator.serviceWorker.controller)this.onUpdate();else this.checkReady();}if(worker.state==='redundant')this.onStatus('Офлайн не готов · повторить','error');});});await navigator.serviceWorker.ready;await this.checkReady();}catch{this.onStatus('Офлайн не готов · повторить','error');}
+  }
+  async checkReady(){try{const scope=this.registration?.scope||new URL('./',location.href).href,prefix='cube-chaos-'+encodeURIComponent(scope)+'-',names=await caches.keys(),marker=new URL('offline-ready',scope).href;for(const name of names.filter(n=>n.startsWith(prefix)||/^cube-chaos-[a-f0-9]{12}$/.test(n))){const cache=await caches.open(name);if(await cache.match(marker)){this.onStatus('Готово к офлайн-игре','ready');return;}}this.onStatus('Подготовка офлайн-ресурсов','loading');}catch{this.onStatus('Офлайн-ресурсы не проверены','error');}}
+  update(){this.registration?.waiting?.postMessage({type:'SKIP_WAITING'});navigator.serviceWorker.addEventListener('controllerchange',()=>location.reload(),{once:true});}
+}

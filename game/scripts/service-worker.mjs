@@ -1,0 +1,8 @@
+export function serviceWorkerSource(version,files){return `const PREFIX='cube-chaos-'+encodeURIComponent(self.registration.scope)+'-';
+const CACHE=PREFIX+'${version}';
+const ASSETS=${JSON.stringify(['./',...files.map(f=>'./'+f)])};
+async function announce(message){for(const client of await self.clients.matchAll({includeUncontrolled:true}))client.postMessage(message);}
+self.addEventListener('install',event=>event.waitUntil((async()=>{const cache=await caches.open(CACHE);try{let done=0;for(const asset of ASSETS){const response=await fetch(new Request(asset,{cache:'reload'}));if(!response.ok)throw Error(asset);await cache.put(asset,response);await announce({type:'CACHE_PROGRESS',done:++done,total:ASSETS.length});}await cache.put('./offline-ready',new Response('ready'));if(!self.registration.active)await self.skipWaiting();}catch(e){await caches.delete(CACHE);await announce({type:'CACHE_ERROR'});throw e;}})()));
+self.addEventListener('activate',event=>event.waitUntil((async()=>{for(const name of await caches.keys())if(name.startsWith(PREFIX)&&name!==CACHE)await caches.delete(name);await self.clients.claim();})()));
+self.addEventListener('message',event=>{if(event.data?.type==='SKIP_WAITING')self.skipWaiting();});
+self.addEventListener('fetch',event=>{if(event.request.method!=='GET'||new URL(event.request.url).origin!==self.location.origin||!new URL(event.request.url).pathname.startsWith(new URL(self.registration.scope).pathname))return;event.respondWith((async()=>{const cache=await caches.open(CACHE);const cached=await cache.match(event.request,{ignoreSearch:true});if(cached)return cached;if(event.request.mode==='navigate')return await cache.match('./index.html')||fetch(event.request);return fetch(event.request);})());});`;}

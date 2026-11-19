@@ -1,0 +1,11 @@
+export const VERSION = '0.12.0';
+export const SAVE_VERSION = 1;
+export const GENERATOR_VERSION = 11;
+export const U = 24;
+export const STEP = 1000 / 120;
+export const BASE_SPEED = 3.5; // Matter velocity units per reference frame (60 Hz).
+export const COLORS = ['#6078ed','#f07171','#eab947','#61b88a','#ac80dc','#ee955b','#55b9c8','#d984b5','#a4b956','#9298ac','#b8815e','#6ccebe'];
+export const SIZES = { small:{label:'Маленькая',min:5,max:8,wall:15}, medium:{label:'Средняя',min:9,max:16,wall:30}, large:{label:'Большая',min:17,max:30,wall:45} };
+export const ROOM = {w:14,h:10,door:4};
+export const DIRS = [{x:0,y:-1,name:'N',opposite:'S'},{x:1,y:0,name:'E',opposite:'W'},{x:0,y:1,name:'S',opposite:'N'},{x:-1,y:0,name:'W',opposite:'E'}];
+export const DEFAULT_SETTINGS = {master:.6,music:.22,effects:.55,debug:false,lowEffects:false,palette:[...COLORS]};
